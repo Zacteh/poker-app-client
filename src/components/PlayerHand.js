@@ -11,8 +11,6 @@ const PlayerHand = ({ gameState, player }) => {
       ? { backgroundColor: 'green' }
       : {};
 
-  // card highlight
-  const cardStyle = { border: '5px solid orange' };
   return (
     <div className='player-hand' style={divStyle}>
       <div>
