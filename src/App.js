@@ -3,7 +3,7 @@ import PokerTable from './components/PokerTable';
 import io from 'socket.io-client';
 import './App.css';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://poker-app-server-e788c2e5ecfc.herokuapp.com');
 
 const App = () => {
   const [gameState, setGameState] = useState({
@@ -14,7 +14,6 @@ const App = () => {
 
   useEffect(() => {
     socket.on('gameState', (gameState) => {
-      console.log(gameState);
       setGameState(gameState);
     });
 

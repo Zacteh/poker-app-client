@@ -3,7 +3,6 @@ import PlayerHand from './PlayerHand';
 import Controls from './Controls';
 
 const PokerTable = ({ gameState, socketId, onPlayerAction }) => {
-  console.log(gameState);
   const thisPlayerIndex = gameState.players.findIndex(
     (player) => player.id === socketId
   );

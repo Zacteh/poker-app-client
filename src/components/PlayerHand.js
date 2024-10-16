@@ -29,8 +29,10 @@ const PlayerHand = ({ gameState, player }) => {
           </div>
         )}
         <div className='player-position'>{player.position}</div>
-        <div className='player-chips'>{player.chips}</div>
-        <div className='player-chipsOnTable'>{player.chipsOnTable}</div>
+        <div className='player-chips'>{'chips: ' + player.chips}</div>
+        <div className='player-chipsOnTable'>
+          {'bet: ' + player.chipsOnTable}
+        </div>
       </div>
       <div className='cards'>
         {player.cards.map((card, index) => (
