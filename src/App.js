@@ -3,7 +3,7 @@ import PokerTable from './components/PokerTable';
 import io from 'socket.io-client';
 import './App.css';
 
-const socket = io('https://120.55.63.63:5000');
+const socket = io('http://120.55.63.63');
 
 const App = () => {
   const [gameState, setGameState] = useState({
