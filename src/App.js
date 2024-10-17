@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 import './App.css';
 
 const socket = io('https://123456712345.asia');
+// const socket = io('http://localhost:5000');
 
 const App = () => {
   const [gameState, setGameState] = useState({
