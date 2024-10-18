@@ -40,6 +40,15 @@ const Controls = ({ gameState, player, onPlayerAction }) => {
     }
   };
 
+  // disable raise if player has no chips or if all other players have no chips
+  const disableRaise =
+    player.chips <= sliderMin ||
+    gameState.players
+      .filter((p) => p.id !== player.id)
+      .reduce((accumulator, currentValue) => {
+        return accumulator + currentValue;
+      }, 0) === 0;
+
   return (
     <div className='controls'>
       {!gameState.started && (
@@ -83,7 +92,7 @@ const Controls = ({ gameState, player, onPlayerAction }) => {
             >
               <Grid2 item>
                 <Slider
-                  disabled={player.chips <= sliderMin}
+                  disabled={disableRaise}
                   value={raiseAmount}
                   style={{ width: '100px' }}
                   onChange={handleSliderChange}
@@ -95,7 +104,7 @@ const Controls = ({ gameState, player, onPlayerAction }) => {
               </Grid2>
               <Grid2 item>
                 <Input
-                  disabled={player.chips <= sliderMin}
+                  disabled={disableRaise}
                   value={raiseAmount}
                   size='small'
                   onChange={handleInputChange}
@@ -111,7 +120,7 @@ const Controls = ({ gameState, player, onPlayerAction }) => {
               </Grid2>
             </Box>
             <Button
-              disabled={player.chips <= sliderMin}
+              disabled={disableRaise}
               onClick={() =>
                 handleAction({ type: 'raise', value: raiseAmount })
               }
