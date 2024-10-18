@@ -42,11 +42,11 @@ const Controls = ({ gameState, player, onPlayerAction }) => {
 
   // disable raise if player has no chips or if all other players have no chips
   const disableRaise =
-    player.chips <= sliderMin ||
+    player?.chips <= sliderMin ||
     gameState.players
       .filter((p) => p.id !== player.id)
       .reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
+        return accumulator + currentValue.chips;
       }, 0) === 0;
 
   return (
